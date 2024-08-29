@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CorsPatternD", "CorsPatternD.csproj", "{C740DD1D-A552-475A-9C1C-CA10ECC3433A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C740DD1D-A552-475A-9C1C-CA10ECC3433A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C740DD1D-A552-475A-9C1C-CA10ECC3433A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C740DD1D-A552-475A-9C1C-CA10ECC3433A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C740DD1D-A552-475A-9C1C-CA10ECC3433A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {663F34F5-CA8A-488E-B6F4-18E6EECB2F5B}
+	EndGlobalSection
+EndGlobal
