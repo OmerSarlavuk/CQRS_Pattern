@@ -1,27 +1,21 @@
 using CQRS.Commands.Request;
 using CQRS.Commands.Response;
+using DataAccess;
 using MediatR;
-using Models;
+using Response;
 
 namespace CQRS.Handlers.CommandHandlers
 {
 
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, UpdateProductCommandResponse>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest, ApiResponse<UpdateProductCommandResponse>>
     {
 
-        public async Task<UpdateProductCommandResponse> Handle(UpdateProductCommandRequest request, CancellationToken cancellation)
-        {
+        private readonly IProductRepository _productRespository;
+        public UpdateProductCommandHandler(IProductRepository productRespository) => 
+        _productRespository = productRespository;
 
-            var product = ApplicationDbContext.ProductList.Find(x => x.Id == request.Id);
-            product.Name = request.Name;
-            product.Price = request.Price;
-            product.Quantity = request.Quantity;
-
-            return new UpdateProductCommandResponse() {
-                Id = product.Id,
-                IsSuccess = true
-            };
-        }
+        public async Task<ApiResponse<UpdateProductCommandResponse>> Handle(UpdateProductCommandRequest request, CancellationToken cancellation) =>
+        await _productRespository.Update(request);
 
     }
 

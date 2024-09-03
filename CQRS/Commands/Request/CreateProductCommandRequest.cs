@@ -1,10 +1,11 @@
 using CQRS.Commands.Response;
 using MediatR;
+using Response;
 
 namespace CQRS.Commands.Request 
 {
 
-    public class CreateProductCommandRequest : IRequest<CreateProductCommandResponse>
+    public class CreateProductCommandRequest : IRequest<ApiResponse<CreateProductCommandResponse>>
     {
 
         public string Name { get; set; }

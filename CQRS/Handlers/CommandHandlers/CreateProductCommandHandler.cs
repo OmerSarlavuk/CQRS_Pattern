@@ -1,30 +1,21 @@
 using CQRS.Commands.Request;
 using CQRS.Commands.Response;
+using DataAccess;
 using MediatR;
-using Models;
+using Response;
 
 namespace CQRS.Handlers.CommandHandlers
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, CreateProductCommandResponse>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, ApiResponse<CreateProductCommandResponse>>
     {
-        public async Task<CreateProductCommandResponse> Handle(CreateProductCommandRequest request, CancellationToken cancellation) 
-        {
-            var id = Guid.NewGuid();
-            ApplicationDbContext.ProductList.Add(
-                new Product() {
-                    Id = id,
-                    Name = request.Name,
-                    Quantity = request.Quantity,
-                    Price = request.Price,
-                    CreateTime = DateTime.Now
-                }
-            );
 
-            return new CreateProductCommandResponse() {
-                Id = id,
-                IsSuccess = true
-            };
-        }
+        private readonly IProductRepository _productRepository;
+
+        public CreateProductCommandHandler(IProductRepository productRepository) =>
+        _productRepository = productRepository;
+
+        public async Task<ApiResponse<CreateProductCommandResponse>> Handle(CreateProductCommandRequest request, CancellationToken cancellation) =>
+        await _productRepository.Create(request);
     }
 
 }

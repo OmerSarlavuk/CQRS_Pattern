@@ -1,12 +1,13 @@
 using CQRS.Commands.Response;
 using MediatR;
+using Response;
 
 namespace CQRS.Commands.Request
 {
 
-    public class DeleteProductCommandRequest : IRequest<DeleteProductCommandResponse>
+    public class DeleteProductCommandRequest : IRequest<ApiResponse<DeleteProductCommandResponse>>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 
 }

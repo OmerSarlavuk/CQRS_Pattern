@@ -1,24 +1,21 @@
 using CQRS.Commands.Request;
 using CQRS.Commands.Response;
+using DataAccess;
 using MediatR;
-using Models;
+using Response;
 
 namespace CQRS.Handlers.CommandHandlers
 {
 
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest, DeleteProductCommandResponse>
+    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest, ApiResponse<DeleteProductCommandResponse>>
     {
 
-        public async Task<DeleteProductCommandResponse> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
-        {
+        private readonly IProductRepository _productRepository;
+        public DeleteProductCommandHandler(IProductRepository productRepository) =>
+        _productRepository = productRepository;
 
-            var product = ApplicationDbContext.ProductList.Find(x => x.Id == request.Id);
-            ApplicationDbContext.ProductList.Remove(product);
-
-            return new DeleteProductCommandResponse() {
-                IsSuccess = true
-            };
-        }
+        public async Task<ApiResponse<DeleteProductCommandResponse>> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken) => 
+        await _productRepository.Delete(request);
 
     }
 

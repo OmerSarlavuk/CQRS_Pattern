@@ -1,27 +1,20 @@
 using CQRS.Queries.Request;
 using CQRS.Queries.Response;
+using DataAccess;
 using MediatR;
-using Models;
+using Response;
 
 namespace CQRS.Handlers.QueryHandlers
 {
 
-    public class ReadbyIdProductQueriesHandler : IRequestHandler<ReadbyIdProductQueriesRequest, ReadbyIdProductQueriesResponse> 
+    public class ReadbyIdProductQueriesHandler : IRequestHandler<ReadbyIdProductQueriesRequest, ApiResponse<ReadbyIdProductQueriesResponse>> 
     {
+        private readonly IProductRepository _productRepository;
+        public ReadbyIdProductQueriesHandler(IProductRepository productRepository) =>
+        _productRepository = productRepository;
 
-        public async Task<ReadbyIdProductQueriesResponse> Handle(ReadbyIdProductQueriesRequest request, CancellationToken cancellationToken)
-        {
-
-            var product = ApplicationDbContext.ProductList.FirstOrDefault(x => x.Id == request.Id);
-            return new ReadbyIdProductQueriesResponse() {
-                Id = product.Id,
-                Name = product.Name,
-                Price = product.Price,
-                Quantity = product.Quantity,
-                CreateTime = product.CreateTime
-            };
-
-        }
+        public async Task<ApiResponse<ReadbyIdProductQueriesResponse>> Handle(ReadbyIdProductQueriesRequest request, CancellationToken cancellationToken) =>
+        await _productRepository.GetbyId(request);
 
     }
 

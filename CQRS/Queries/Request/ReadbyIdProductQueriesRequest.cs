@@ -1,12 +1,13 @@
 using CQRS.Queries.Response;
 using MediatR;
+using Response;
 
 namespace CQRS.Queries.Request
 {
 
-    public class ReadbyIdProductQueriesRequest : IRequest<ReadbyIdProductQueriesResponse>
+    public class ReadbyIdProductQueriesRequest : IRequest<ApiResponse<ReadbyIdProductQueriesResponse>>
     {
-         public Guid Id { get; set; }
+         public int Id { get; set; }
     }
 
 }

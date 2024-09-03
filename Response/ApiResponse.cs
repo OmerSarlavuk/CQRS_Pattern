@@ -18,7 +18,7 @@ namespace Response
 
         public static ApiResponse<T> Success(int statusCode)
         {
-            return new ApiResponse<T>{
+            return new ApiResponse<T>{  
                 StatusCode = statusCode,
             };
         } 
