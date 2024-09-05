@@ -7,7 +7,6 @@ using Response;
 
 namespace DataAccess
 {
-
     public interface IProductRepository
     {
         Task<ApiResponse<List<ReadProductQueriesResponse>>> GetAll();

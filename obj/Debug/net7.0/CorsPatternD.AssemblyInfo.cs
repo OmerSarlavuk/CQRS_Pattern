@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CorsPatternD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4fd9ab68194c400e22710ab5811523e895aa3b6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a7f1ef065484ca7162e358337e330fd290b04b56")]
 [assembly: System.Reflection.AssemblyProductAttribute("CorsPatternD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CorsPatternD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
