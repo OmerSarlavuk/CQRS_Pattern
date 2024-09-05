@@ -8,16 +8,11 @@ using Response;
 
 namespace DataAccess
 {
-
     public class ProductRepository : IProductRepository
     {
 
         private readonly CQRSPatternDataContext _context;
-
-        public ProductRepository(CQRSPatternDataContext context)
-        {
-            _context = context;
-        }
+        public ProductRepository(CQRSPatternDataContext context) => _context = context;
 
         public async Task<ApiResponse<CreateProductCommandResponse>> Create(CreateProductCommandRequest productCreateDto)
         {

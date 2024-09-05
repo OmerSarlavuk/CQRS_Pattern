@@ -3729,11 +3729,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ahlatci/Desktop/CorsPatternD/CorsPatternD.csproj",
+      "projectUniqueName": "/Users/ahlatci/Desktop/MixedFiles/CorsPatternD/CorsPatternD.csproj",
       "projectName": "CorsPatternD",
-      "projectPath": "/Users/ahlatci/Desktop/CorsPatternD/CorsPatternD.csproj",
+      "projectPath": "/Users/ahlatci/Desktop/MixedFiles/CorsPatternD/CorsPatternD.csproj",
       "packagesPath": "/Users/ahlatci/.nuget/packages/",
-      "outputPath": "/Users/ahlatci/Desktop/CorsPatternD/obj/",
+      "outputPath": "/Users/ahlatci/Desktop/MixedFiles/CorsPatternD/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ahlatci/.nuget/NuGet/NuGet.Config"
